@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Feliz Aniversário, Irmã!</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: system-ui, sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: radial-gradient(circle at top, #ffe6ff 0, #ffb3ff 40%, #590059 100%);
+      padding: 20px;
+    }
+
+    .card {
+      max-width: 100%;
+      max-width: 600px;
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 20px;
+      padding: 30px;
+      text-align: center;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+      backdrop-filter: blur(10px);
+    }
+
+    h1 {
+      font-size: 2.2rem;
+      color: #3b0040;
+      margin-bottom: 10px;
+    }
+
+    .subtitle {
+      font-size: 1.1rem;
+      color: #7a207f;
+      margin-bottom: 25px;
+    }
+
+    /* Fotos em carrossel simples */
+    .photos {
+      display: flex;
+      gap: 12px;
+      margin: 25px 0;
+      overflow-x: auto;
+      padding: 10px 0;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+
+    .photos::-webkit-scrollbar {
+      display: none;
+    }
+
+    .photo {
+      flex: 0 0 200px;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 15px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s ease;
+    }
+
+    .photo:hover {
+      transform: scale(1.05);
+    }
+
+    .message {
+      line-height: 1.6;
+      margin: 25px 0;
+      color: #3b0040;
+      font-size: 1rem;
+    }
+
+    .surprise {
+      background: linear-gradient(135deg, #ff66b2, #ff9966);
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 50px;
+      font-size: 1rem;
+      cursor: pointer;
+      box-shadow: 0 8px 20px rgba(255, 102, 178, 0.4);
+      margin-top: 15px;
+    }
+
+    .surprise:hover {
+      transform: translateY(-2px);
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    @media (max-width: 480px) {
+      .photo {
+        flex: 0 0 150px;
+        height: 150px;
+      }
+      h1 { font-size: 1.8rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>🎉 Feliz Aniversário, Irmã! 🎉</h1>
+    <p class="subtitle">Hoje é o seu dia especial! Te amo demais 💖</p>
+
+    <!-- Fotos deslizantes -->
+    <div class="photos">
+      <img src="foto1.jpg.jpeg" alt="Luciane linda!" class="photo">
+      <img src="foto2.jpeg" alt="Família com Luciane" class="photo">
+      <img src="foto3.jpeg" alt="Luciane com a sobrinha" class="photo">
+    </div>
+
+    <p class="message">
+      Irmã, que Deus te abençoe muito! Desejo saúde, paz, amor e 
+      todos os sonhos realizados e tambem que Deus abençoe cada passo seu, que nunca falte amor, saúde,
+      paz e muitos motivos para sorrir. Obrigado por ser essa irmã
+      maravilhosa que ilumina a vida de todo mundo ao redor Você é a melhor irmã do mundo! 🌟
+    </p>
+
+    <button class="surprise" onclick="toggleSurprise()">
+      Clique para mensagem especial 🎁
+    </button>
+    <p id="surprise" class="message hidden">
+      <strong>Eu te amo muito, mana! Que seus 50+ kkkkkkk sejam os melhores da vida! 💕</strong>
+    </p>
+  </div>
+
+  <script>
+    function toggleSurprise() {
+      const surprise = document.getElementById('surprise');
+      surprise.classList.toggle('hidden');
+    }
+  </script>
+</body>
+</html>
