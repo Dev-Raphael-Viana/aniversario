@@ -11,6 +11,7 @@
       box-sizing: border-box;
       font-family: system-ui, sans-serif;
     }
+    html, body { overflow-x: hidden; } /* ← ADICIONADO: impede corte horizontal */
 
     body {
       min-height: 100vh;
@@ -18,28 +19,29 @@
       justify-content: center;
       align-items: center;
       background: radial-gradient(circle at top, #ffe6ff 0, #ffb3ff 40%, #590059 100%);
-      padding: 20px;
+      padding: clamp(10px, 5vw, 20px); /* ← MUDADO: padding responsivo */
     }
 
     .card {
       max-width: 100%;
+      width: 100%; /* ← ADICIONADO: força largura total */
       max-width: 600px;
       background: rgba(255, 255, 255, 0.95);
       border-radius: 20px;
-      padding: 30px;
+      padding: clamp(20px, 6vw, 30px); /* ← MUDADO: padding responsivo */
       text-align: center;
       box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
       backdrop-filter: blur(10px);
     }
 
     h1 {
-      font-size: 2.2rem;
+      font-size: clamp(1.8rem, 8vw, 2.2rem); /* ← MUDADO: responsivo */
       color: #3b0040;
       margin-bottom: 10px;
     }
 
     .subtitle {
-      font-size: 1.1rem;
+      font-size: clamp(1rem, 4vw, 1.1rem); /* ← MUDADO: responsivo */
       color: #7a207f;
       margin-bottom: 25px;
     }
@@ -60,8 +62,8 @@
     }
 
     .photo {
-      flex: 0 0 200px;
-      height: 200px;
+      flex: 0 0 clamp(140px, 40vw, 200px); /* ← MUDADO: largura responsiva */
+      height: clamp(140px, 40vw, 200px); /* ← MUDADO: altura responsiva */
       object-fit: cover;
       border-radius: 15px;
       box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
@@ -76,16 +78,19 @@
       line-height: 1.6;
       margin: 25px 0;
       color: #3b0040;
-      font-size: 1rem;
+      font-size: clamp(0.9rem, 3.5vw, 1rem); /* ← MUDADO: responsivo + quebra */
+      overflow-wrap: break-word; /* ← ADICIONADO: quebra palavras longas */
+      hyphens: auto;
+      word-break: break-word;
     }
 
     .surprise {
       background: linear-gradient(135deg, #ff66b2, #ff9966);
       color: white;
       border: none;
-      padding: 12px 24px;
+      padding: clamp(10px, 4vw, 12px) clamp(20px, 8vw, 24px); /* ← MUDADO: responsivo */
       border-radius: 50px;
-      font-size: 1rem;
+      font-size: clamp(0.95rem, 4vw, 1rem); /* ← MUDADO: responsivo */
       cursor: pointer;
       box-shadow: 0 8px 20px rgba(255, 102, 178, 0.4);
       margin-top: 15px;
@@ -101,8 +106,8 @@
 
     @media (max-width: 480px) {
       .photo {
-        flex: 0 0 150px;
-        height: 150px;
+        flex: 0 0 140px;
+        height: 140px;
       }
       h1 { font-size: 1.8rem; }
     }
@@ -113,11 +118,11 @@
     <h1>🎉 Feliz Aniversário, Irmã! 🎉</h1>
     <p class="subtitle">Hoje é o seu dia especial! Te amo demais 💖</p>
 
-    <!-- Fotos deslizantes -->
+    <!-- Fotos deslizantes - CORRIGIDO NOMES -->
     <div class="photos">
-      <img src="foto1.jpg.jpeg" alt="Luciane linda!" class="photo">
-      <img src="foto2.jpeg" alt="Família com Luciane" class="photo">
-      <img src="foto3.jpeg" alt="Luciane com a sobrinha" class="photo">
+      <img src="foto1.jpg.jpg" alt="Luciane linda!" class="photo">
+      <img src="foto2.jpg" alt="Família com Luciane" class="photo">
+      <img src="foto3.jpg" alt="Luciane com a sobrinha" class="photo">
     </div>
 
     <p class="message">
